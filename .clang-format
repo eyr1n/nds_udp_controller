@@ -1,0 +1,5 @@
+BasedOnStyle: LLVM
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: true
+IndentCaseLabels: true
+SortIncludes: false

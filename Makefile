@@ -7,9 +7,9 @@ $(error "Please set DEVKITARM in your environment. export DEVKITARM=<path to>dev
 endif
 
 # These set the information text in the nds file
-#GAME_TITLE     := My Wonderful Homebrew
-#GAME_SUBTITLE1 := built with devkitARM
-#GAME_SUBTITLE2 := http://devitpro.org
+GAME_TITLE     := NDS UDP Controller
+GAME_SUBTITLE1 := by @rin4046
+GAME_SUBTITLE2 := https://rinrin.me
 
 include $(DEVKITARM)/ds_rules
 
@@ -44,14 +44,14 @@ ARCH := -marm -mthumb-interwork -march=armv5te -mtune=arm946e-s
 
 CFLAGS   := -g -Wall -O3\
             $(ARCH) $(INCLUDE) -DARM9
-CXXFLAGS := $(CFLAGS) -fno-rtti -fno-exceptions
+CXXFLAGS := $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++20
 ASFLAGS  := -g $(ARCH)
 LDFLAGS   = -specs=ds_arm9.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project (order is important)
 #---------------------------------------------------------------------------------
-LIBS := -lnds9
+LIBS := -ldswifi9 -lnds9
 
 # automatigically add libraries for NitroFS
 ifneq ($(strip $(NITRO)),)
