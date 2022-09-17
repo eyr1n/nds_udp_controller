@@ -14,7 +14,6 @@ public:
   UDPSender() = default;
 
   ~UDPSender() {
-    iprintf("asdf\nasdf\n\n");
     close();
   }
 
