@@ -1,7 +1,5 @@
 #pragma once
 
-#include <concepts>
-
 #include <sys/socket.h>
 #include <netinet/in.h>
 
@@ -54,9 +52,5 @@ public:
       return false;
     }
     return true;
-  }
-
-  template <std::integral T> bool send(T data) {
-    return send(&data, sizeof(data));
   }
 };

@@ -46,14 +46,24 @@ int main() {
   Wifi_InitDefault(WFC_CONNECT);
   sender.open(ip_addr, atoi(port));
 
+  touchPosition touch;
+  uint16_t msg[2];
+
   // UDP送信ループ
   while (1) {
     swiWaitForVBlank();
     scanKeys();
+
     uint16_t keys = keysHeld();
+    touchRead(&touch);
     if (keys & KEY_START && keys & KEY_SELECT) break;
-    iprintf("\e[%d;0H  Keys: %5d", 18, keys);
-    sender.send(keys);
+
+    msg[0] = keys;
+    msg[1] = (touch.py << 8) | touch.px;
+    sender.send(&msg, sizeof(msg));
+
+    iprintf("\e[%d;0H  Keys: %5d, X: %3d, Y: %3d", 18, keys, touch.px,
+            touch.py);
   }
 
   sender.close();
