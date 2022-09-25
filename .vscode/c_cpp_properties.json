@@ -1,7 +1,7 @@
 {
   "configurations": [
     {
-      "name": "devkitARM",
+      "name": "devkitARM NDS",
       "includePath": [
         "${workspaceFolder}/**",
         "/opt/devkitpro/libnds/include"
@@ -13,7 +13,7 @@
         "ARM9"
       ],
       "cStandard": "gnu17",
-      "cppStandard": "gnu++20",
+      "cppStandard": "gnu++17",
       "compilerPath": "/opt/devkitpro/devkitARM/bin/arm-none-eabi-gcc"
     }
   ],
