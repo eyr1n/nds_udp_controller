@@ -1,5 +1,4 @@
 #include <cstdio>
-#include <cstdlib>
 
 #include <nds.h>
 #include <dswifi9.h>
